@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
+
+import Header from './../layout/header';
+
 import './profile.css';
 
 const Profile = () => {
@@ -67,23 +70,7 @@ const Profile = () => {
   return (
     <div className="profile-container">
       {/* Header */}
-      <header className="profile-header">
-        <div className="header-content">
-          <Link to="/" className="logo">
-            <h2>MERN App</h2>
-          </Link>
-          <nav className="header-nav">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/dashboard" className="nav-link">Dashboard</Link>
-            <Link to="/projects" className="nav-link">Projects</Link>
-            <Link to="/settings" className="nav-link">Settings</Link>
-          </nav>
-          <div className="header-actions">
-            <button className="notification-btn">🔔</button>
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
-          </div>
-        </div>
-      </header>
+    <Header/>
 
       {/* Main Content */}
       <main className="profile-main">
@@ -122,225 +109,43 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Stats Section */}
-          <div className="stats-section">
-            <div className="stats-grid">
-              {stats.map((stat, index) => (
-                <div key={index} className="stat-card">
-                  <div className="stat-icon">{stat.icon}</div>
-                  <div className="stat-content">
-                    <h3>{stat.value}</h3>
-                    <p>{stat.label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        
 
-          {/* Tabs Section */}
-          <div className="profile-tabs">
-            <div className="tabs-header">
-              <button 
-                className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
-                onClick={() => setActiveTab('overview')}
-              >
-                Overview
-              </button>
-              <button 
-                className={`tab-btn ${activeTab === 'activity' ? 'active' : ''}`}
-                onClick={() => setActiveTab('activity')}
-              >
-                Activity
-              </button>
-              <button 
-                className={`tab-btn ${activeTab === 'settings' ? 'active' : ''}`}
-                onClick={() => setActiveTab('settings')}
-              >
-                Settings
-              </button>
-            </div>
-
-            <div className="tabs-content">
-              {/* Overview Tab */}
-              {activeTab === 'overview' && (
-                <div className="tab-panel">
-                  <div className="overview-grid">
-                    <div className="overview-card">
-                      <h3>About Me</h3>
-                      <p>{profileData.bio}</p>
-                      <div className="skills">
-                        <h4>Skills</h4>
-                        <div className="skill-tags">
-                          <span className="skill-tag">React</span>
-                          <span className="skill-tag">Node.js</span>
-                          <span className="skill-tag">MongoDB</span>
-                          <span className="skill-tag">Express</span>
-                          <span className="skill-tag">JavaScript</span>
-                          <span className="skill-tag">CSS</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="overview-card">
-                      <h3>Recent Projects</h3>
-                      <div className="project-list">
-                        <div className="project-item">
-                          <div className="project-icon">🛒</div>
-                          <div className="project-info">
-                            <h4>E-commerce Platform</h4>
-                            <p>Full-stack shopping application</p>
-                            <span className="project-status completed">Completed</span>
-                          </div>
-                        </div>
-                        <div className="project-item">
-                          <div className="project-icon">📱</div>
-                          <div className="project-info">
-                            <h4>Task Management App</h4>
-                            <p>React-based productivity tool</p>
-                            <span className="project-status in-progress">In Progress</span>
-                          </div>
-                        </div>
-                        <div className="project-item">
-                          <div className="project-icon">🌐</div>
-                          <div className="project-info">
-                            <h4>Portfolio Website</h4>
-                            <p>Personal showcase website</p>
-                            <span className="project-status planning">Planning</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Activity Tab */}
-              {activeTab === 'activity' && (
-                <div className="tab-panel">
-                  <div className="activity-section">
-                    <h3>Recent Activity</h3>
-                    <div className="activity-list">
-                      {recentActivity.map((activity, index) => (
-                        <div key={index} className="activity-item">
-                          <div className="activity-icon">{activity.icon}</div>
-                          <div className="activity-content">
-                            <p>{activity.action}</p>
-                            <span className="activity-time">{activity.time}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Settings Tab */}
-              {activeTab === 'settings' && (
-                <div className="tab-panel">
-                  <div className="settings-section">
-                    <h3>Profile Settings</h3>
-                    <div className="settings-form">
-                      <div className="form-group">
-                        <label>Full Name</label>
-                        <input
-                          type="text"
-                          name="name"
-                          value={profileData.name}
-                          onChange={handleInputChange}
-                          disabled={!isEditing}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label>Email Address</label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={profileData.email}
-                          onChange={handleInputChange}
-                          disabled={!isEditing}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label>Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={profileData.phone}
-                          onChange={handleInputChange}
-                          disabled={!isEditing}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label>Location</label>
-                        <input
-                          type="text"
-                          name="location"
-                          value={profileData.location}
-                          onChange={handleInputChange}
-                          disabled={!isEditing}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label>Bio</label>
-                        <textarea
-                          name="bio"
-                          value={profileData.bio}
-                          onChange={handleInputChange}
-                          disabled={!isEditing}
-                          rows="4"
-                        />
-                      </div>
-                      {isEditing && (
-                        <div className="form-actions">
-                          <button className="btn btn-primary" onClick={handleSave}>
-                            Save Changes
-                          </button>
-                          <button 
-                            className="btn btn-secondary" 
-                            onClick={() => setIsEditing(false)}
-                          >
-                            Cancel
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
+       
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="profile-footer">
-        <div className="footer-content">
-          <div className="footer-section">
-            <h4>MERN App</h4>
-            <p>Building amazing web applications with cutting-edge technology.</p>
+     
+      <section className="features" >
+        <h2 className="section-title">What We Offer</h2>
+        <div className="feature-cards">
+          <div className="feature-card">
+            <div className="feature-icon">🔍</div>
+            <h3 className="feature-title">Symptom Based Medicine Recommendation</h3>
+            <p className="feature-description">
+              Easily log and monitor your symptoms over time to identify patterns and triggers.
+            </p>
           </div>
-          <div className="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-              <li><Link to="/support">Support</Link></li>
-            </ul>
+
+          <div className="feature-card">
+            <div className="feature-icon">📊</div>
+            <h3 className="feature-title">Symptom based Diet Recommendation</h3>
+            <p className="feature-description">
+              Get tailored recommendations based on your unique health profile and symptom history.
+            </p>
           </div>
-          <div className="footer-section">
-            <h4>Account</h4>
-            <ul>
-              <li><Link to="/profile">Profile</Link></li>
-              <li><Link to="/settings">Settings</Link></li>
-              <li><Link to="/privacy">Privacy</Link></li>
-              <li><Link to="/help">Help</Link></li>
-            </ul>
+
+          <div className="feature-card">
+            <div className="feature-icon">🔔</div>
+            <h3 className="feature-title">Ai Assitant</h3>
+            <p className="feature-description">
+              Never miss a medication or appointment with our smart reminder system.
+            </p>
           </div>
         </div>
-        <div className="footer-bottom">
-          <p>&copy; 2025 MERN App. All rights reserved.</p>
-        </div>
-      </footer>
+      </section>
+
+
     </div>
   );
 };

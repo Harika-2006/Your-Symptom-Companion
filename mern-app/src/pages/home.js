@@ -45,7 +45,7 @@ export default function SymptomCompanionLanding() {
 
   return (
     <>
-      {/* ================= HERO ================= */}
+  
       <Header/>
 
       <section className="hero">
@@ -70,34 +70,7 @@ export default function SymptomCompanionLanding() {
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section className="features" style={{ display: showFeatures ? 'block' : 'none' }}>
-        <h2 className="section-title">What We Offer</h2>
-        <div className="feature-cards">
-          <div className="feature-card">
-            <div className="feature-icon">🔍</div>
-            <h3 className="feature-title">Symptom Based Medicine Recommendation</h3>
-            <p className="feature-description">
-              Easily log and monitor your symptoms over time to identify patterns and triggers.
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">📊</div>
-            <h3 className="feature-title">Diet Recommendation</h3>
-            <p className="feature-description">
-              Get tailored recommendations based on your unique health profile and symptom history.
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">🔔</div>
-            <h3 className="feature-title">Ai chatbot</h3>
-            <p className="feature-description">
-              Never miss a medication or appointment with our smart reminder system.
-            </p>
-          </div>
-        </div>
-      </section>
+     
     </>
   );
 }

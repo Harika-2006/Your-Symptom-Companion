@@ -13,13 +13,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-indigo-600">SymptomCompanion</h1>
+            <h1 className="text-2xl font-bold text-indigo-600">Your Symptom Companion</h1>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
-            <a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors">About</a>
-            <a href="#features" className="text-gray-700 hover:text-indigo-600 transition-colors">Features</a>
-            <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
+            <a href="/home" className="text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
+            <a href="/about" className="text-gray-700 hover:text-indigo-600 transition-colors">About</a>
+            <a href="/features" className="text-gray-700 hover:text-indigo-600 transition-colors">Features</a>
+            <a href="/login" className="text-gray-700 hover:text-indigo-600 transition-colors">Login</a>
           </div>
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">

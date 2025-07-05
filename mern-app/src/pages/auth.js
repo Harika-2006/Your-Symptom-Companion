@@ -68,18 +68,7 @@ const Auth = () => {
   return (
     <div className="login-container">
       {/* Header */}
-      <header className="login-header">
-        <div className="header-content">
-          <Link to="/" className="logo">
-            <h1>MERN App</h1>
-          </Link>
-          <nav className="header-nav">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/contact" className="nav-link">Contact</Link>
-          </nav>
-        </div>
-      </header>
+   
 
       {/* Main Login Content */}
       <main className="login-main">
@@ -217,17 +206,7 @@ const Auth = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="login-footer">
-        <div className="footer-content">
-          <p>&copy; 2025 MERN App. All rights reserved.</p>
-          <div className="footer-links">
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/support">Support</Link>
-          </div>
-        </div>
-      </footer>
+   
     </div>
   );
 };

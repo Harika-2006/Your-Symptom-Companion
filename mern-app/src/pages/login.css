@@ -1,0 +1,228 @@
+:root {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --accent: #4361ee;
+  --accent-light: #4895ef;
+  --error: #e63946;
+  --success: #2a9d8f;
+  --border: #dee2e6;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --accent: #4cc9f0;
+  --accent-light: #4895ef;
+  --border: #343a40;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-container {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+}
+
+.form-check input {
+  margin-right: 8px;
+}
+
+.form-check label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.forgot-password {
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.sign-up {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.sign-up a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sign-up a:hover {
+  text-decoration: underline;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-actions { animation-delay: 0.3s; }
+.submit-btn { animation-delay: 0.4s; }
+.sign-up { animation-delay: 0.5s; }
+
+/* Error */
+.error-message {
+  color: var(--error);
+  font-size: 14px;
+  margin-top: 4px;
+  display: none;
+}
+
+.error input {
+  border-color: var(--error);
+}
+
+.error .error-message {
+  display: block;
+}
+
+/* Success Animation */
+@keyframes success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.success {
+  animation: success 0.5s ease;
+}
